@@ -1,0 +1,6578 @@
+[
+  {
+    "case_id": "multiplicity-asc-rank1-index_out_of_bounds-bound1",
+    "family": "multiplicity-asc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank1-index_out_of_bounds-bound2",
+    "family": "multiplicity-asc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank1-index_out_of_bounds-bound3",
+    "family": "multiplicity-asc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank1-missing_rank-bound1",
+    "family": "multiplicity-asc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank1-missing_rank-bound2",
+    "family": "multiplicity-asc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank1-missing_rank-bound3",
+    "family": "multiplicity-asc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank1-zero-bound1",
+    "family": "multiplicity-asc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank1-zero-bound2",
+    "family": "multiplicity-asc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank1-zero-bound3",
+    "family": "multiplicity-asc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank2-index_out_of_bounds-bound1",
+    "family": "multiplicity-asc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank2-index_out_of_bounds-bound2",
+    "family": "multiplicity-asc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank2-index_out_of_bounds-bound3",
+    "family": "multiplicity-asc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank2-missing_rank-bound1",
+    "family": "multiplicity-asc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank2-missing_rank-bound2",
+    "family": "multiplicity-asc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank2-missing_rank-bound3",
+    "family": "multiplicity-asc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank2-zero-bound1",
+    "family": "multiplicity-asc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank2-zero-bound2",
+    "family": "multiplicity-asc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank2-zero-bound3",
+    "family": "multiplicity-asc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank3-index_out_of_bounds-bound1",
+    "family": "multiplicity-asc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank3-index_out_of_bounds-bound2",
+    "family": "multiplicity-asc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank3-index_out_of_bounds-bound3",
+    "family": "multiplicity-asc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank3-missing_rank-bound1",
+    "family": "multiplicity-asc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank3-missing_rank-bound2",
+    "family": "multiplicity-asc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank3-missing_rank-bound3",
+    "family": "multiplicity-asc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank3-zero-bound1",
+    "family": "multiplicity-asc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank3-zero-bound2",
+    "family": "multiplicity-asc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-asc-rank3-zero-bound3",
+    "family": "multiplicity-asc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank1-index_out_of_bounds-bound1",
+    "family": "distinct-asc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank1-index_out_of_bounds-bound2",
+    "family": "distinct-asc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank1-index_out_of_bounds-bound3",
+    "family": "distinct-asc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank1-missing_rank-bound1",
+    "family": "distinct-asc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank1-missing_rank-bound2",
+    "family": "distinct-asc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank1-missing_rank-bound3",
+    "family": "distinct-asc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank1-zero-bound1",
+    "family": "distinct-asc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank1-zero-bound2",
+    "family": "distinct-asc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank1-zero-bound3",
+    "family": "distinct-asc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank2-index_out_of_bounds-bound1",
+    "family": "distinct-asc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank2-index_out_of_bounds-bound2",
+    "family": "distinct-asc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank2-index_out_of_bounds-bound3",
+    "family": "distinct-asc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank2-missing_rank-bound1",
+    "family": "distinct-asc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank2-missing_rank-bound2",
+    "family": "distinct-asc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank2-missing_rank-bound3",
+    "family": "distinct-asc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank2-zero-bound1",
+    "family": "distinct-asc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank2-zero-bound2",
+    "family": "distinct-asc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank2-zero-bound3",
+    "family": "distinct-asc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank3-index_out_of_bounds-bound1",
+    "family": "distinct-asc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank3-index_out_of_bounds-bound2",
+    "family": "distinct-asc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank3-index_out_of_bounds-bound3",
+    "family": "distinct-asc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank3-missing_rank-bound1",
+    "family": "distinct-asc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank3-missing_rank-bound2",
+    "family": "distinct-asc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank3-missing_rank-bound3",
+    "family": "distinct-asc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "asc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank3-zero-bound1",
+    "family": "distinct-asc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank3-zero-bound2",
+    "family": "distinct-asc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-asc-rank3-zero-bound3",
+    "family": "distinct-asc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in ascending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "asc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "asc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank1-index_out_of_bounds-bound1",
+    "family": "multiplicity-desc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank1-index_out_of_bounds-bound2",
+    "family": "multiplicity-desc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank1-index_out_of_bounds-bound3",
+    "family": "multiplicity-desc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank1-missing_rank-bound1",
+    "family": "multiplicity-desc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank1-missing_rank-bound2",
+    "family": "multiplicity-desc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank1-missing_rank-bound3",
+    "family": "multiplicity-desc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank1-zero-bound1",
+    "family": "multiplicity-desc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank1-zero-bound2",
+    "family": "multiplicity-desc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank1-zero-bound3",
+    "family": "multiplicity-desc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank2-index_out_of_bounds-bound1",
+    "family": "multiplicity-desc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank2-index_out_of_bounds-bound2",
+    "family": "multiplicity-desc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank2-index_out_of_bounds-bound3",
+    "family": "multiplicity-desc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank2-missing_rank-bound1",
+    "family": "multiplicity-desc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank2-missing_rank-bound2",
+    "family": "multiplicity-desc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank2-missing_rank-bound3",
+    "family": "multiplicity-desc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank2-zero-bound1",
+    "family": "multiplicity-desc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank2-zero-bound2",
+    "family": "multiplicity-desc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank2-zero-bound3",
+    "family": "multiplicity-desc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank3-index_out_of_bounds-bound1",
+    "family": "multiplicity-desc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank3-index_out_of_bounds-bound2",
+    "family": "multiplicity-desc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank3-index_out_of_bounds-bound3",
+    "family": "multiplicity-desc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank3-missing_rank-bound1",
+    "family": "multiplicity-desc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank3-missing_rank-bound2",
+    "family": "multiplicity-desc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank3-missing_rank-bound3",
+    "family": "multiplicity-desc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "input"
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank3-zero-bound1",
+    "family": "multiplicity-desc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank3-zero-bound2",
+    "family": "multiplicity-desc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "multiplicity-desc-rank3-zero-bound3",
+    "family": "multiplicity-desc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, preserving multiplicity. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": false,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "input"
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "input"
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank1-index_out_of_bounds-bound1",
+    "family": "distinct-desc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank1-index_out_of_bounds-bound2",
+    "family": "distinct-desc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank1-index_out_of_bounds-bound3",
+    "family": "distinct-desc-rank1-index_out_of_bounds",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank1-missing_rank-bound1",
+    "family": "distinct-desc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank1-missing_rank-bound2",
+    "family": "distinct-desc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank1-missing_rank-bound3",
+    "family": "distinct-desc-rank1-missing_rank",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 0,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank1-zero-bound1",
+    "family": "distinct-desc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank1-zero-bound2",
+    "family": "distinct-desc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank1-zero-bound3",
+    "family": "distinct-desc-rank1-zero",
+    "split": "train",
+    "request": "Select rank 1 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 1,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 1
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 0,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank2-index_out_of_bounds-bound1",
+    "family": "distinct-desc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank2-index_out_of_bounds-bound2",
+    "family": "distinct-desc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank2-index_out_of_bounds-bound3",
+    "family": "distinct-desc-rank2-index_out_of_bounds",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank2-missing_rank-bound1",
+    "family": "distinct-desc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank2-missing_rank-bound2",
+    "family": "distinct-desc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank2-missing_rank-bound3",
+    "family": "distinct-desc-rank2-missing_rank",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 1,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank2-zero-bound1",
+    "family": "distinct-desc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank2-zero-bound2",
+    "family": "distinct-desc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank2-zero-bound3",
+    "family": "distinct-desc-rank2-zero",
+    "split": "validation",
+    "request": "Select rank 2 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 2,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 2
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 1,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank3-index_out_of_bounds-bound1",
+    "family": "distinct-desc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank3-index_out_of_bounds-bound2",
+    "family": "distinct-desc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank3-index_out_of_bounds-bound3",
+    "family": "distinct-desc-rank3-index_out_of_bounds",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error index_out_of_bounds.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "index_out_of_bounds"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "index_out_of_bounds"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank3-missing_rank-bound1",
+    "family": "distinct-desc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank3-missing_rank-bound2",
+    "family": "distinct-desc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank3-missing_rank-bound3",
+    "family": "distinct-desc-rank3-missing_rank",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return error missing_rank.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "missing_rank"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "at",
+          "index": 2,
+          "values": {
+            "op": "sort",
+            "order": "desc",
+            "values": {
+              "op": "unique",
+              "values": {
+                "op": "input"
+              }
+            }
+          },
+          "error": "missing_rank"
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank3-zero-bound1",
+    "family": "distinct-desc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-1,1]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -1,
+      "max_value": 1,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -1,
+            "max": 1
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank3-zero-bound2",
+    "family": "distinct-desc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-2,2]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -2,
+      "max_value": 2,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -2,
+            "max": 2
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "distinct-desc-rank3-zero-bound3",
+    "family": "distinct-desc-rank3-zero",
+    "split": "test",
+    "request": "Select rank 3 (one-based) in descending order, removing duplicates. Input is a pure list of at most 3 integers in [-3,3]. If rank is missing, return integer zero.",
+    "supported": true,
+    "scope": {
+      "min_value": -3,
+      "max_value": 3,
+      "min_length": 0,
+      "max_length": 3
+    },
+    "oracle": {
+      "order": "desc",
+      "distinct": true,
+      "rank": 3,
+      "missing": "zero"
+    },
+    "acceptable_contracts": [
+      {
+        "version": 1,
+        "input": {
+          "kind": "list",
+          "items": {
+            "kind": "int",
+            "min": -3,
+            "max": 3
+          },
+          "min_length": 0,
+          "max_length": 3
+        },
+        "output": {
+          "op": "if",
+          "condition": {
+            "op": "lt",
+            "left": {
+              "op": "length",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "right": {
+              "op": "int",
+              "value": 3
+            }
+          },
+          "then": {
+            "op": "int",
+            "value": 0
+          },
+          "else": {
+            "op": "at",
+            "index": 2,
+            "values": {
+              "op": "sort",
+              "order": "desc",
+              "values": {
+                "op": "unique",
+                "values": {
+                  "op": "input"
+                }
+              }
+            },
+            "error": "index_out_of_bounds"
+          }
+        }
+      }
+    ],
+    "forbidden_interpretations": [
+      "Reverse the specified ordering",
+      "Change duplicate handling",
+      "Change the specified missing-rank result"
+    ]
+  },
+  {
+    "case_id": "unsupported-01",
+    "family": "unsupported-01",
+    "split": "test",
+    "request": "Return the median rounded to two decimal places.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-02",
+    "family": "unsupported-02",
+    "split": "test",
+    "request": "Return the second-largest floating point value, ignoring NaNs.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-03",
+    "family": "unsupported-03",
+    "split": "test",
+    "request": "Delete the user and cascade removal to every related record.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-04",
+    "family": "unsupported-04",
+    "split": "test",
+    "request": "Permit access only if the caller has an administrator role.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-05",
+    "family": "unsupported-05",
+    "split": "test",
+    "request": "Return the longest string in the list.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-06",
+    "family": "unsupported-06",
+    "split": "test",
+    "request": "Increment every integer, wrapping on overflow.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-07",
+    "family": "unsupported-07",
+    "split": "test",
+    "request": "Mutate the input list in place while sorting it.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-08",
+    "family": "unsupported-08",
+    "split": "test",
+    "request": "Sort one million integers without a length bound.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-09",
+    "family": "unsupported-09",
+    "split": "test",
+    "request": "Eventually return an answer even if the server disconnects.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-10",
+    "family": "unsupported-10",
+    "split": "test",
+    "request": "Select a uniformly random item.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-11",
+    "family": "unsupported-11",
+    "split": "test",
+    "request": "Find the maximum dollar amount after converting euros at today's rate.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  },
+  {
+    "case_id": "unsupported-12",
+    "family": "unsupported-12",
+    "split": "test",
+    "request": "Return a record containing the minimum, maximum, and their original positions.",
+    "supported": false,
+    "acceptable_contracts": [],
+    "forbidden_interpretations": [
+      "Silently discard the unsupported requirement"
+    ]
+  }
+]

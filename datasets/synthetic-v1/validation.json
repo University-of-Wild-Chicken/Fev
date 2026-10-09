@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "records_validated": 2372,
+  "parent_tasks": 192,
+  "supported_parent_tasks": 144,
+  "solver_material_pairs": 144,
+  "solver_equivalent_pairs": 144,
+  "independent_oracle_inputs": 139788,
+  "independent_oracle_evaluations": 419364,
+  "solver_witnesses_replayed_by_independent_oracles": 144,
+  "source_spans_checked": true,
+  "target_json_schema_checked": true,
+  "every_target_spec_typechecked": true,
+  "repair_inputs_rejected_before_correction": true,
+  "cross_split_parent_overlap": 0,
+  "cross_split_exact_contract_hash_overlap": 0,
+  "cross_split_prompt_and_target_output_ast_overlap_ignoring_scope": 0,
+  "duplicate_parent_candidates_removed": 48,
+  "duplicate_message_triplets_removed": 28,
+  "unique_message_triplets": 2372,
+  "unsupported_records": 96,
+  "split_policy": "Entire operator-composition families; all paraphrases/stages/parent variants stay together",
+  "record_independence": "Four stages and up to four surface forms per parent are correlated, not independent tasks",
+  "limits": "Synthetic authored conventions only; finite integer scopes; no human-intent truth, calibration, broad natural-language accuracy, or trained-model improvement claim",
+  "unique_target_contracts": {
+    "train": 152,
+    "validation": 64,
+    "test": 64
+  }
+}

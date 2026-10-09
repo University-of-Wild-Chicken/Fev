@@ -1,0 +1,125 @@
+[
+  {
+    "stage": "intake",
+    "data": {
+      "claims": [
+        {
+          "text": "Return the second-largest number.",
+          "start": 0,
+          "end": 33,
+          "formal_meaning": "Select rank two",
+          "provenance": "explicit_text"
+        }
+      ]
+    }
+  },
+  {
+    "stage": "proposal",
+    "data": {
+      "forks": [
+        {
+          "label": "distinct",
+          "assumptions": [
+            {
+              "text": "Too few values return index_out_of_bounds; input is a bounded integer list.",
+              "provenance": "external_assumption"
+            }
+          ],
+          "selected_axis_options": {
+            "duplicates": "distinct"
+          },
+          "typed_spec_ir": {
+            "version": 1,
+            "input": {
+              "kind": "list",
+              "items": {
+                "kind": "int",
+                "min": -8,
+                "max": 8
+              },
+              "min_length": 0,
+              "max_length": 5
+            },
+            "output": {
+              "op": "at",
+              "index": 1,
+              "values": {
+                "op": "sort",
+                "order": "desc",
+                "values": {
+                  "op": "unique",
+                  "values": {
+                    "op": "input"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "stage": "proposal",
+    "data": {
+      "forks": [
+        {
+          "label": "multiplicity",
+          "assumptions": [
+            {
+              "text": "Too few values return index_out_of_bounds; input is a bounded integer list.",
+              "provenance": "external_assumption"
+            }
+          ],
+          "selected_axis_options": {
+            "duplicates": "multiplicity"
+          },
+          "typed_spec_ir": {
+            "version": 1,
+            "input": {
+              "kind": "list",
+              "items": {
+                "kind": "int",
+                "min": -8,
+                "max": 8
+              },
+              "min_length": 0,
+              "max_length": 5
+            },
+            "output": {
+              "op": "at",
+              "index": 1,
+              "values": {
+                "op": "sort",
+                "order": "desc",
+                "values": {
+                  "op": "input"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "stage": "expansion",
+    "data": {
+      "forks": []
+    }
+  },
+  {
+    "stage": "expansion",
+    "data": {
+      "forks": []
+    }
+  },
+  {
+    "stage": "critic",
+    "data": {
+      "critic_notes": [
+        "Bounded domain; no completeness claim."
+      ]
+    }
+  }
+]

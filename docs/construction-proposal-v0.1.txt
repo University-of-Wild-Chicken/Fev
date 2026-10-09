@@ -1,0 +1,295 @@
+**Fev construction architecture — proposal v0.1, 28 September 2026**
+
+Build Fev as a local semantic-fork compiler with a decision layer. Qwen-3.8-27B-Q3 proposes interpretations and candidate implementations. A small typed language, deterministic controller, solver adapters, and an evidence ledger decide what the system can claim. The initial product is a service that turns one underspecified requirement into distinguishable contracts, concrete examples, and a justified next step.
+
+This is a proposed construction plan, not an audit of existing Fev code. The checkpoint name is the user's supplied identifier. Exact model files, quantization variant, tokenizer, prompt template, and inference build must be recorded before measuring behavior. The deployment target is the previously specified single RTX 5080 with 16 GB VRAM.
+
+Preserve the original pipeline: construct semantic forks, evaluate their plausibility, construct the fork-by-action matrix, resolve material uncertainty, and hand a committed contract to implementation. Keep intent uncertainty, model inconsistency, implementation uncertainty, and resource exhaustion as separate states.
+
+```mermaid
+flowchart TD
+    A["Request and context"] --> B["Qwen: propose forks"]
+    B --> C["Typed compiler and solver"]
+    C -->|"Repair or duplicate feedback"| B
+    C --> D["Fork registry and witnesses"]
+    D --> E["Action consequences and decision"]
+    E -->|"Material ambiguity"| F["Concrete clarification"]
+    F --> B
+    E -->|"Resolved contract"| G["Commit contract"]
+    G --> H["Implement and check"]
+    H -->|"Code counterexample"| H
+    H -->|"Specification conflict"| F
+```
+
+**The system has six construction stages.**
+
+1. Extract a source-linked requirement ledger and possible ambiguity axes.
+2. Construct candidate contracts using a constrained, typed intermediate representation.
+3. Check consistency and compare observable behavior; keep concrete distinguishing witnesses.
+4. Construct action consequences, with probabilities only where their targets and calibration are defined.
+5. Resolve any ambiguity that changes the selected behavior, then freeze a contract.
+6. Generate an implementation or execute the supported IR, and report conformance at the evidence level actually achieved.
+
+The first usable release ends at stage 5. Stage 6 is an adapter that can be added without changing the semantic-fork interface.
+
+**Component ownership is explicit.**
+
+| Component | Responsibility | Authority |
+| --- | --- | --- |
+| Intake controller | Snapshot request/context, choose domain adapter, allocate budgets | Deterministic code |
+| Qwen proposer | Suggest ambiguity axes, fork assignments, structured contracts, and examples | Proposals only |
+| IR kernel | Parse, type-check, normalize safe syntactic identities, interpret supported terms | Trusted implementation |
+| Solver adapter | Compile IR obligations, invoke solver, preserve scope/result/model | Evidence conditional on encoding and solver |
+| Fork registry | Track candidates, equivalence evidence, unresolved comparisons, and dependencies | Deterministic code |
+| Coverage critic | Suggest omitted axes or a missing material interpretation | Heuristic; no completeness authority |
+| Scorer | Rank interpretations; later estimate explicitly defined probabilities | Empirical, versioned model |
+| Action evaluator | Evaluate a proposed action under every relevant fork | Model checks, runtime checks, or explicitly labeled estimates |
+| Decision controller | Apply existing user constraints and action policy; choose clarify/commit/defer | Deterministic code |
+| Commitment ledger | Freeze selected semantics and invalidate stale downstream results | Deterministic code |
+| Implementation adapter | Generate candidate code or run accepted IR; collect conformance evidence | Cannot alter the committed contract |
+
+Qwen roles run sequentially through one resident checkpoint. Different prompts and fresh contexts are diversity measures; they do not provide independent reviewers or independent error probabilities.
+
+**1. Represent requirements and forks before generating code.**
+
+Store the raw requirement unchanged. Every extracted statement carries its source span, proposed formal meaning, and status. Use `explicit_text`, `inferred`, `external_assumption`, and `user_confirmed` as separate provenance labels. `explicit_text` means a source phrase exists; it does not certify that its formal translation is correct. Only an actual user decision can create `user_confirmed`.
+
+A fork must describe observable behavior. A paragraph with different wording is insufficient. A compact data contract is:
+
+```text
+Task
+  request_id, raw_text, context_snapshot_hash
+  domain_adapter_id, scope, observation_schema
+  claims[], ambiguity_axes[], action_inventory
+  model_manifest, budgets, policy
+
+Fork
+  fork_id, parent_id, selected_axis_options
+  assumptions[] with source and provenance
+  typed_spec_ir, spec_hash
+  unresolved_axes[], unsupported_requirements[]
+  consistency_evidence, comparisons[]
+  status: proposed | valid | duplicate | invalid | unresolved
+
+Comparison
+  left_hash, right_hash, environment_hash, scope_hash
+  result: distinct | equivalent_in_scope | unresolved
+  witness_or_query_ref, solver_manifest
+
+ActionCell
+  fork_id, action_id, action_model_hash
+  outcome_or_trace
+  conformance: checked_in_scope | violated | unknown | not_applicable
+  evidence_kind, evidence_refs, cost_components
+
+FevResult
+  forks[], unresolved_candidates[], search_frontier
+  comparisons[], action_matrix[], scores
+  coverage_status, stop_reason, resource_usage
+  decision: clarify | commit | defer | unsupported
+  question_or_contract, limitations[], evidence_refs[]
+```
+
+Separate ambiguity axes rather than flattening everything immediately. For “delete the user,” removal mode and handling of related records are different axes. Represent dependencies between them. A fork is a compatible joint assignment, not one isolated option. Expand a partial assignment only when it could change observable behavior or the next action; preserve unexpanded branches in the search frontier. Do not assign normalized probabilities to overlapping partial branches as if they were disjoint complete intents.
+
+Begin with small pure functions and bounded one-step state transformations. Choose one narrow domain adapter for the first vertical slice, such as list-selection functions. Add access-control and record-update adapters after the core works. A general-purpose specification language, concurrent programs, and unrestricted temporal properties are later extensions.
+
+**2. Give Qwen a small target language.**
+
+Use JSON as transport for a typed AST, with bounded depth and node count. Initial types are booleans, enums, explicitly bounded integers, records, tagged errors, and small bounded lists. Define arithmetic and overflow behavior explicitly. Terms include comparisons, boolean operators, conditionals, projections, and a small set of specified list operators. State transformations must specify updates and frame conditions. Errors and rejected inputs are observable results.
+
+The core exposes five operations:
+
+```text
+parse_and_typecheck(json) -> TypedSpec | Diagnostics
+interpret(spec, state, input) -> ObservableResult
+check_consistency(spec, environment, scope) -> Evidence
+compare(left, right, environment, scope) -> Comparison
+check_action(spec, action_model, environment, scope) -> Evidence
+```
+
+Write a reference interpreter before the solver compiler. On tiny exhaustive domains, compare interpreter outputs against solver encodings to detect translation defects. This is necessary kernel validation, not a proof that the entire compiler is correct. Normalize only identities justified by the IR semantics; keep unsupported expressions explicit.
+
+Never evaluate model-emitted Python, SMT scripts, or source strings to interpret the specification. Unsupported concepts produce an unsupported obligation. They must not disappear from the result. A solver finding a model of the supported fragment does not resolve the omitted requirement.
+
+Use grammar-constrained generation when the installed runtime supports it, then validate the result independently. llama.cpp documents GBNF and partial JSON Schema support, including unsupported schema features; its grammar does not supply the intended semantics or replace a type checker. Include the expected schema structure in the prompt as well as in the generation constraint. [1]
+
+**3. Make “exclude previous forks” a semantic operation.**
+
+Your search rule becomes:
+
+```text
+Propose another contract consistent with the source-linked requirements.
+Change a material behavior not already represented by the retained contracts.
+Name the changed assumption and propose an input that distinguishes it.
+Return the typed IR plus that evidence proposal.
+```
+
+The proposed witness is a hint. The kernel re-evaluates it, and the solver searches for a witness independently of the hint when needed.
+
+For the first adapter, use deterministic total functions or total one-step transitions. Let `T_i(s,u)` be fork i's transition and `Obs` the versioned observation function. Encode invalid inputs as explicit error outcomes so the forks share an input signature. Under a common environment `E`, check:
+
+```text
+E(s,u) AND Obs(T_i(s,u)) != Obs(T_j(s,u))
+```
+
+If satisfiable, store the state/input and the two different results. If unsatisfiable, merge only within the exact environment, observation schema, and scope used by the query. If unknown, timed out, unsupported, or based on an inconsistent environment, do not merge. Validate that the environment is satisfiable; reject vacuous equivalence results. Z3 explicitly distinguishes `sat`, `unsat`, and `unknown`; preserve that distinction throughout the controller. [2]
+
+Assumptions that differ between forks cannot silently enter the shared environment. Encode those differences in the candidate semantics or extend the common input model. Include relevant side effects in `Obs`; hiding a field from observation changes the equivalence claim. A witness in an unreachable abstract state is not automatically a real program counterexample: either restrict the environment to the modeled admissible states or label the witness as abstract.
+
+For future nondeterministic transition relations, compare sets of permitted observable outcomes with the necessary projection over internal state. Do not reuse deterministic output inequality or compare arbitrary internal witnesses. For multi-step behavior, define trace observations and the time bound explicitly; one-step equivalence does not establish unbounded temporal equivalence.
+
+Search schedule:
+
+1. One intake pass proposes axes and source-linked claims.
+2. Two fresh-context proposal calls see the raw request, the domain vocabulary, and confirmed constraints. Neither sees the other's candidates; they may challenge the proposed axis inventory.
+3. Compile, check, and compare the proposals.
+4. Up to two targeted expansion calls see compact canonical summaries and distinguishing witnesses. Ask for uncovered behavior, not paraphrases.
+5. One coverage-critic pass checks the raw request against the retained set, unresolved frontier, and unsupported requirements. It can propose omissions but cannot declare natural-language completeness.
+6. Up to two bounded repair calls receive compiler diagnostics. Changed contracts re-enter all affected checks.
+
+Suggested initial limits are six retained/pending forks, eight model calls, and 6,000 generated tokens across discovery, criticism, and repair. The caps are tuning defaults, not measured hardware performance. Stop on the first reached limit and preserve the unresolved work. Lack of novelty or repeated agreement is a search stop condition, never a completeness proof.
+
+**4. Separate three meanings of “probability.”**
+
+| Quantity | Meaning | Appropriate source |
+| --- | --- | --- |
+| Intent plausibility | Whether a user would select a particular complete interpretation | Labeled intent decisions and calibration |
+| Action-choice distribution | Which next action a specified policy would select under a fork | Defined policy or supervised action labels |
+| Outcome uncertainty | Whether an external action succeeds under uncertain environment behavior | Execution data or an explicit environment model |
+
+Solver validity is none of these. Model generation frequency and a generated “90% confident” statement are not calibrated user-intent probabilities.
+
+For v0, store plausibility ranks and explanations with `calibration_status: uncalibrated`; use `null` for unavailable probabilities. The useful output remains the fork set, the concrete consequences, and the clarification. Leave unresolved interpretation mass as unknown rather than inventing a residual percentage.
+
+For v1, freeze a candidate set and define a label event: the user's selected complete semantic intent belongs to canonical class i. This requires unambiguous class labeling within the declared scope. If the user accepts several behaviors, retain an acceptable set; do not pretend they selected one hidden unique intent. Keep unresolved equivalence comparisons out of claims requiring a canonical categorical partition.
+
+With a single-choice labeling protocol, define:
+
+```text
+q_i = P(intent class i | intent represented in retained set, request, context)
+r   = P(intent is outside retained set | request, context, search evidence)
+p_i = (1-r) q_i
+```
+
+Train the within-set ranker and the missing-intent detector on separately identified targets. The latter needs cases where an independently specified intended contract is absent from the generated set, including unsupported intended behavior. All probabilities are distribution-dependent estimates. `r` does not certify that open-ended meaning has been exhausted.
+
+A small CPU scorer can initially use source support, explicit assumption count, option features, semantic novelty, and actual user feedback. Solver satisfiability is a filter, not evidence that an interpretation is likely intended. Use held-out calibration data; temperature scaling is one established baseline for suitable classifier scores, not a substitute for labels or a guarantee for Fev. [3]
+
+Your original matrix can be preserved as:
+
+```text
+M_policy[i,j] = P(next action is a_j | intent i, request, context, policy)
+```
+
+Rows sum to one only when actions are mutually exclusive and exhaustive next-action labels, including clarify/defer/other where necessary. Separately retain `ActionCell[i,j]` with actual consequences and conformance evidence. Several actions can satisfy one contract, so conformance cells are not a probability distribution and must not be row-normalized.
+
+When calibrated estimates and action labels are available:
+
+```text
+P(a_j) = sum_i p_i M_policy[i,j] + r M_policy[other,j]
+```
+
+If the other-intent row is unknown but `r` is estimated, a per-action range is `[sum_i p_i M_policy[i,j], sum_i p_i M_policy[i,j] + r]`, conditional on those estimates. It is not a statistical confidence interval. If `r` is unknown, there is no justified numeric aggregate. Never renormalize it away.
+
+**5. Choose actions from consequences and a stated policy.**
+
+Construct action columns from the supported action inventory or validate proposed action models against its schema. Compute each action's observable consequences under each fork. For code without a faithful formal semantics, mark the cells as test evidence or estimates; do not call the solver on an invented code model and claim it verified the program.
+
+The decision controller first applies existing user constraints, permissions, and hard invariants. Plausibility rankings can guide search or question order. They cannot override a hard constraint or turn an unknown conformance cell into a pass. A utility calculation is meaningful only when the costs and tradeoffs are specified; Qwen cannot silently invent the user's loss function.
+
+Clarify only when an unresolved choice changes required behavior or the permitted next action. With uncalibrated scores, prefer a small concrete witness that separates action-relevant forks. A useful question asks which observable result is intended. Permit “neither / missing interpretation” and update the axis vocabulary when needed. If the request already resolves an axis, use it; do not ask redundant questions.
+
+Agreement across known forks permits a limited claim about those forks. It does not resolve an unexpanded frontier or undiscovered semantics. Proceed under an existing explicit default policy where one applies; otherwise return the material uncertainty. Low-impact analysis can continue while a consequential commitment remains unresolved.
+
+Example: “Return the second-largest number.” On input `[5,5,3]`, two material meanings are:
+
+| Fork | Interpretation | Observable result |
+| --- | --- | --- |
+| F1 | Second-largest distinct value | 3 |
+| F2 | Second element after sorting descending, preserving multiplicity | 5 |
+
+The question is “For `[5,5,3]`, should the result be 3 or 5?” Duplicate handling is one axis; too-few-values behavior, accepted numeric types, and input mutation are separate axes. A single example does not resolve all of them.
+
+The action matrix on this witness is:
+
+| Intended fork | Use distinct-value selector | Use multiplicity selector | Ask the witness question |
+| --- | --- | --- | --- |
+| F1 | Compatible on this witness | Violates this witness | Resolves this axis |
+| F2 | Violates this witness | Compatible on this witness | Resolves this axis |
+
+This is a witness-level matrix, not global verification of either implementation. Full cells require the declared input domain, error behavior, and corresponding checks.
+
+**6. Freeze intent before implementation and preserve evidence levels.**
+
+A commitment records the selected contract hash, assumptions, error cases, observation schema, environment, scope, and the source of the selection. Every test, proof obligation, generated implementation, and result references that commitment. A code repair may change code. It may not silently weaken the contract to make checks pass. A discovered specification conflict creates a new contract version and invalidates affected downstream evidence.
+
+For supported tasks, first run the IR through the reference interpreter. This delivers executable specified behavior without asking Qwen to regenerate its semantics. Later, attach a code generator or external coding agent. Give it the committed contract, examples, forbidden behaviors, and acceptance obligations. Collect compiler results, distinguishing-example regressions, boundary tests, and any valid formal checks available for the target language.
+
+Keep evidence labels explicit:
+
+| Label | Claim |
+| --- | --- |
+| Proposed | Model output only |
+| Well typed | Accepted by the IR type system |
+| Consistent in scope | A model exists under the encoded assumptions |
+| Distinguished | A checked witness separates two contracts |
+| Equivalent in scope | No distinguishing observation exists in the encoded scope, subject to the trusted components |
+| Tested implementation | The specified runtime checks passed |
+| Formally checked implementation | A stated code-to-contract obligation was discharged under its explicit semantics and assumptions |
+
+Neither valid JSON, solver satisfiability, nor passing examples establishes that the user intended the contract. Neither a proof about the IR nor a test suite automatically establishes arbitrary generated code conformance. The initial trusted boundary includes the IR semantics, interpreter, solver compiler, solver, observation model, and environment assumptions. Replaying witnesses reduces some risks; machine-checked proof certificates would be a separate extension.
+
+**Deployment on the available machine.**
+
+Use one resident model endpoint and a Python controller. Keep validation, solver processes, the ledger, and later small scorers on CPU. Retain the current working inference engine if it supports the checkpoint correctly; llama.cpp is an option for a compatible GGUF checkpoint. Its server exposes constrained sampling, token limits, and timing information that can support this controller. Pin the actual runtime build rather than relying on moving defaults. [4]
+
+| Setting | Initial construction default |
+| --- | --- |
+| Resident Qwen copies | 1 |
+| Concurrent generation requests | 1 |
+| Context target | Start at 4k–8k tokens if measured VRAM permits |
+| Retained plus pending forks | At most 6 |
+| Discovery/critic/repair calls | At most 8 |
+| Generated discovery tokens | At most 6,000 total |
+| Individual solver query | Up to 2 seconds initially |
+| Solver budget per request | Up to 30 seconds initially |
+| Repair | At most 2 model calls; all changed obligations rechecked |
+| Storage | SQLite ledger plus content-addressed local evidence files |
+| Execution | Separate process with domain-appropriate resource and side-effect limits |
+
+These limits apply to analysis, not an unlimited subsequent coding run. Start with a CLI and structured JSON output. Add a small UI once the results are useful: fork cards, distinguishing example, source-linked assumptions, action matrix, and one material question at a time. Keep implementation internals out of the ordinary selection flow.
+
+Do not infer available context length from Q3 weight size. Quantization metadata, actual tensor precision, KV cache, runtime buffers, and other GPU use affect fit. Measure peak VRAM, prefill latency, generation rate, and p50/p95 request latency using the actual checkpoint. No latency or accuracy estimate in this proposal has been benchmarked on the user's machine.
+
+Cache by request/context hash, IR hash, scope, adapter version, and relevant runtime versions. Solver results require environment and observation hashes too. Save model outputs themselves for replay. Seeds and low-temperature generation alone do not guarantee identical GPU inference; deterministic replay means replaying recorded proposals through a pinned kernel, not assuming regeneration is identical. [4]
+
+**Build and evaluation order.**
+
+| Milestone | Deliverable | Exit evidence |
+| --- | --- | --- |
+| A: semantic kernel | One adapter, typed AST, interpreter, solver compiler, comparator | Handwritten contracts and tiny exhaustive interpreter/solver agreement checks; explicit rejection of unsupported forms |
+| B: fork service | Qwen proposal adapter, bounded search, registry, witnesses, stop reasons | Real ambiguous requests produce distinct source-linked interpretations and checked examples |
+| C: decision service | Action cells, material clarification, immutable commitments | Decisions preserve hard constraints and unresolved states; changed commitments invalidate stale checks |
+| D: implementation adapter | IR execution or code-generation handoff and evidence collection | No substitution of IR evidence for program evidence; contract-preserving repair |
+| E: learned scoring | Intent labels, missing-intent labels, small scorer, calibration report | Held-out performance for defined label events, including failures outside the candidate set |
+
+The proposed module boundaries are `intake`, `model_adapter`, `ir`, `interpreter`, `solver_backend`, `fork_search`, `fork_registry`, `scoring`, `actions`, `decision`, `commitments`, `implementation`, and `evaluation`. Keep schemas and evidence records shared; keep model prompts replaceable. Swapping Qwen later must not require changing the kernel or result format.
+
+Construct a hand-checked engineering suite of roughly 100–200 requests spanning duplication, boundary comparisons, missing-value behavior, quantifier scope, units, ordering, and simple state updates. Each case needs a declared scope and independently authored acceptable contracts, forbidden interpretations, and distinguishing examples where available. Keep cases outside the supported language. This suite can find defects; its size does not justify very small failure-probability claims.
+
+Split by semantic family or original requirement, not random paraphrase. Run three baselines with comparable model-token budgets: direct Qwen output; Qwen producing multiple alternatives without mechanical semantic comparison; complete Fev. Assess fork recall against the declared reference set, false semantic merges, irrelevant-fork rate, material clarification rate, final action correctness, unsupported-case handling, and latency/VRAM. For learned scoring, additionally measure Brier score or log loss, reliability plots, and error versus abstention. Report uncertainty and sample counts.
+
+Model self-labels can help manufacture candidates, but they are not ground truth for intended meaning. Solver labels establish properties of the encoding, not human intent. Prioritize semantic coverage and false-merge prevention before tuning confidence numbers or fine-tuning the 27B model. Once the data identifies a repeatable failure mode, train the smallest component that addresses it: usually fork ranking or missing-intent detection before another generator.
+
+The initial honest product claim is: Fev constructs and mechanically distinguishes a bounded set of plausible formal interpretations in a supported domain, exposes unresolved meaning, and preserves a selected contract through downstream work. Broader claims require broader domain semantics and evidence.
+
+**Sources used for implementation choices.**
+
+[1] [llama.cpp grammar and JSON Schema documentation](https://github.com/ggml-org/llama.cpp/blob/master/grammars/README.md), accessed 28 September 2026. Supports the constrained-generation interface and its documented limitations.
+
+[2] [Z3 Guide: Basic Commands](https://microsoft.github.io/z3guide/docs/logic/basiccommands/), accessed 28 September 2026. Supports the solver result distinctions and model retrieval; the Fev obligation designs above are this proposal's construction.
+
+[3] [Guo et al., On Calibration of Modern Neural Networks, ICML 2017](https://proceedings.mlr.press/v70/guo17a.html). Supports temperature scaling as a calibration baseline; it does not validate Qwen or Fev probabilities.
+
+[4] [llama.cpp server documentation](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md), accessed 28 September 2026. Supports the cited runtime controls and the documented possibility of nondeterministic results with prompt-cache reuse.

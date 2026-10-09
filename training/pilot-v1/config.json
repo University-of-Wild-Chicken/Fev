@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "purpose": "bounded_experimental_20_step_fev_adapter_pilot",
+  "source_dataset": "/home/augustus/Fev/datasets/synthetic-v1",
+  "source_manifest_sha256": "c118295f23ab387217d93374c8a033057837431b162b9ac591d3e279258ca742",
+  "source_split_hashes": {
+    "train": "dbcb6dc6ee45728b7db3e491c14e678d9056a212eeb7fe026a794b1d802ba9c7",
+    "validation": "f6d2e69db106aad736fdb4a6f6fd8ccdc6f6c62b5ddf2eb19ebd5e2e4746d55f"
+  },
+  "files_sha256": {
+    "train.jsonl": "8f31b9ef04c9feba65ac91fecba4e4ee0dc12f4f4cd3b2b0c29c3f3f6ac3172a",
+    "train-index.jsonl": "9c497bc451dbd9df3f1c177ea3a3c426773154d7a2a790962f30ff7482083f85",
+    "validation.jsonl": "d779333290e8b7cb937751bc40de157ede395dadb5d713e20a86498bf247b5aa",
+    "validation-index.jsonl": "e63f163ae8ce93942eac5d493b2ebfc11dbe71e8ee11323bd65513e1d5970f8f"
+  },
+  "selected_ids": {
+    "train": [
+      "count_duplicate_policy-000-surface3-intake",
+      "empty_result_policy-011-surface2-proposal",
+      "extremum_direction-003-surface3-repair",
+      "length_boundary-009-surface0-critic",
+      "position_or_rank-005-surface1-intake",
+      "rank_duplicate_policy-004-surface0-proposal",
+      "sort_direction-006-surface1-repair",
+      "unique_order-005-surface2-critic",
+      "unsupported_floats-001-intake",
+      "unsupported_strings-001-proposal",
+      "extremum_direction-005-surface3-repair",
+      "length_boundary-000-surface2-critic",
+      "extremum_direction-003-surface0-intake",
+      "length_boundary-001-surface1-proposal",
+      "sort_direction-001-surface1-repair",
+      "unique_order-001-surface3-critic",
+      "sort_direction-004-surface1-intake",
+      "unique_order-000-surface1-proposal",
+      "extremum_direction-000-surface0-repair",
+      "length_boundary-007-surface3-critic"
+    ],
+    "validation": [
+      "extremum_threshold-004-surface2-intake",
+      "guarded_rank-003-surface2-proposal",
+      "extremum_threshold-004-surface1-repair",
+      "guarded_rank-000-surface3-critic",
+      "extremum_threshold-009-surface3-intake",
+      "guarded_rank-010-surface1-proposal",
+      "extremum_threshold-010-surface3-repair",
+      "guarded_rank-009-surface1-critic"
+    ]
+  },
+  "counts": {
+    "train": 20,
+    "validation": 8
+  },
+  "family_counts": {
+    "train": {
+      "count_duplicate_policy": 1,
+      "empty_result_policy": 1,
+      "extremum_direction": 4,
+      "length_boundary": 4,
+      "position_or_rank": 1,
+      "rank_duplicate_policy": 1,
+      "sort_direction": 3,
+      "unique_order": 3,
+      "unsupported_floats": 1,
+      "unsupported_strings": 1
+    },
+    "validation": {
+      "extremum_threshold": 4,
+      "guarded_rank": 4
+    }
+  },
+  "stage_counts": {
+    "train": {
+      "intake": 5,
+      "proposal": 5,
+      "repair": 5,
+      "critic": 5
+    },
+    "validation": {
+      "intake": 2,
+      "proposal": 2,
+      "repair": 2,
+      "critic": 2
+    }
+  },
+  "base": "/home/augustus/AIx/.local/hf-training/models--unsloth--Qwen3.8-27B-unsloth-bnb-4bit/snapshots/8aa5f05d26b7205477066e1449e0af13f762a299",
+  "base_revision": "8aa5f05d26b7205477066e1449e0af13f762a299",
+  "base_config_sha256": "2d239652486841d13eab478b738beaa43bac88e2052f9b4c5afbefd94e59522a",
+  "base_weights_bytes": 22344833801,
+  "base_weights_blob": "d5ced71fee428687bca87ed1b62a1518e936e8698b180fbba35431ebd31e1a25",
+  "base_identity_note": "HF content-addressed cache filename and config hash; large checkpoint not rehashed by prepare",
+  "checkpoint_format": "Hugging Face safetensors NF4, qwen3_5 architecture; not Ollama GGUF",
+  "runner": "/home/augustus/AIx/scripts/train_midlang_offload.py",
+  "runner_sha256": "762d3ee6fe2b6646a9979e4edf83c10079973cde926c7549ea7891cdef4e397f",
+  "checkpoint_helper_sha256": "1fb481e2d7061aa35c430674fb7fbec5ff58471a1005754408f6b6a571535ef9",
+  "wrapper_sha256": "4ce67d36c0bc7c85278158476d2c2c103780ecea595488f19ef24f2f3b3ff61e",
+  "seed": 20261002,
+  "train_config": {
+    "epochs": 1,
+    "probe": 20,
+    "last_layers": 4,
+    "resident_frozen_layers": 4,
+    "rank": 8,
+    "learning_rate": 0.0002,
+    "max_length": 4096,
+    "loss_chunk": 32,
+    "checkpoint_every": 5,
+    "min_host_available_gib": 2.5
+  },
+  "loss": "assistant response tokens only, exact chunked cross entropy",
+  "selection": "compare held-out semantic-family response loss before/after; baseline may win",
+  "no_claims": "Not calibrated human-intent probabilities or established general capability improvement",
+  "test_records_loaded": false,
+  "downloads": false,
+  "automatic_activation": false
+}
